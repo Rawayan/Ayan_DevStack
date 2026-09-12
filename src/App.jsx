@@ -1,9 +1,17 @@
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Technologies from "./components/Technologies";
+
 function App() {
   return (
-    <div>
-      <h1>DevStack</h1>
-      <p>Project setup is working.</p>
-    </div>
+    <>
+      <Navbar />
+
+      <main>
+        <Hero />
+        <Technologies />
+      </main>
+    </>
   );
 }
 
