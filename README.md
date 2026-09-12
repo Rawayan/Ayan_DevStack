@@ -1,16 +1,63 @@
-# React + Vite
+# Dev Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Dev Stack is a responsive React web application where users can explore different development technologies and build their own personalized technology stack.
 
-Currently, two official plugins are available:
+The project displays technology information from a local JSON file and allows users to add and remove technologies from their stack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse development technologies with category, difficulty, rating, description, and icons.
+- Loading state while technology data is fetched from the local JSON file.
+- Toast notifications for adding, removing, duplicate actions, and removing all technologies.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the Oxlint configuration
+- React
+- JavaScript ES6+
+- Vite
+- CSS
+- React-Toastify
+- JSON
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Project Structure
+
+src/
+├── assets/
+├── components/
+│   ├── Footer.jsx
+│   ├── Footer.css
+│   ├── Hero.jsx
+│   ├── Hero.css
+│   ├── Navbar.jsx
+│   ├── Navbar.css
+│   ├── Technologies.jsx
+│   ├── Technologies.css
+│   ├── TechnologyCard.jsx
+│   ├── TechnologyCard.css
+│   ├── YourStack.jsx
+│   └── YourStack.css
+├── index.css
+├── App.jsx
+└── main.jsx
+
+public/
+└── data/
+    └── technologies.json
+
+
+## Question Answare-
+
+1.What is JSX, and why is it used in React?
+- JSX is a syntax used in React that allows us to write HTML-like code inside JavaScript.
+
+2.What is the difference between props and state?
+- Props are data passed from a parent component to a child component and State is data managed inside a component that can change over time.
+
+3.What is the useState hook and where do you use it?
+- useState is a React Hook used to store and update data inside a functional component.
+
+4.What is the useEffect hook and why do we use it for JSON data?
+- useEffect is a React Hook used for performing side effects in a component.
+
+5.Why do we need a unique key when using map()?
+- The key helps React identify which items have changed, been added, or removed.
