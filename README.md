@@ -4,6 +4,14 @@ Dev Stack is a responsive React web application where users can explore differen
 
 The project displays technology information from a local JSON file and allows users to add and remove technologies from their stack.
 
+
+
+## Live Site
+https://rawayan-devstack.netlify.app/
+
+
+
+
 ## Features
 
 - Browse development technologies with category, difficulty, rating, description, and icons.
@@ -61,3 +69,17 @@ public/
 
 5.Why do we need a unique key when using map()?
 - The key helps React identify which items have changed, been added, or removed.
+
+6.What is conditional rendering? Give an example from this project.
+- Conditional rendering means displaying different UI depending on a condition.
+example: 
+the loading message is displayed only while the JSON data is being loaded:
+{loading && (
+  <div>
+    <p>Loading technologies...</p>
+  </div>
+)}
+
+7.How can you pass data from a parent component to a child component? How can a child send data back to its parent?
+- A parent component can pass data to a child component using props and A child can send information back to the parent by calling a callback function.
+
