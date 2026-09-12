@@ -1,5 +1,6 @@
 import technologies from "../data/technologies.json";
 import TechnologyCard from "./TechnologyCard";
+import YourStack from "./YourStack";
 import "./Technologies.css";
 
 function Technologies() {
@@ -14,7 +15,10 @@ function Technologies() {
 
             <h2 className="technologies__title">
               Build Your
-              <span className="gradient-text"> Development Stack</span>
+              <span className="gradient-text">
+                {" "}
+                Development Stack
+              </span>
             </h2>
 
             <p className="technologies__description">
@@ -33,6 +37,8 @@ function Technologies() {
               />
             ))}
           </div>
+
+          <YourStack />
         </div>
       </div>
     </section>
