@@ -1,0 +1,303 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #eef0f4;
+}
+
+.navbar__container {
+  width: min(100% - 32px, var(--container-width));
+  min-height: 68px;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* =========================
+   Desktop Brand
+========================= */
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+}
+
+.navbar__logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.navbar__brand-name {
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.navbar__brand-name span {
+  color: #db2777;
+}
+
+/* =========================
+   Desktop Navigation
+========================= */
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.navbar__link {
+  position: relative;
+
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: #db2777;
+}
+
+.navbar__link--active {
+  color: #db2777;
+}
+
+/* =========================
+   Desktop Actions
+========================= */
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.navbar__signin,
+.navbar__signup {
+  border: none;
+  background: transparent;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.navbar__signin {
+  color: #475569;
+}
+
+.navbar__signin:hover {
+  color: #db2777;
+}
+
+.navbar__signup {
+  padding: 8px 17px;
+
+  border-radius: 999px;
+
+  background: var(--gradient-primary);
+  color: #ffffff;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.navbar__signup:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.2);
+}
+
+/* =========================
+   Mobile Navbar
+========================= */
+
+.navbar__mobile {
+  display: none;
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 900px) {
+  .navbar__links {
+    gap: 18px;
+  }
+
+  .navbar__link {
+    font-size: 12px;
+  }
+
+  .navbar__actions {
+    gap: 10px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 700px) {
+  .navbar__container {
+    display: block;
+    min-height: 60px;
+  }
+
+  .navbar__brand,
+  .navbar__links,
+  .navbar__actions {
+    display: none;
+  }
+
+  .navbar__mobile {
+    min-height: 60px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Hamburger */
+
+  .navbar__menu {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 6px;
+
+    border: none;
+    background: transparent;
+  }
+
+  .navbar__menu span {
+    display: block;
+
+    width: 18px;
+    height: 2px;
+
+    border-radius: 2px;
+
+    background: #111827;
+  }
+
+  /* Mobile Brand */
+
+  .navbar__mobile-brand {
+    justify-self: center;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .navbar__mobile-brand img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+  }
+
+  .navbar__mobile-brand span {
+    color: #111827;
+
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .navbar__mobile-brand strong {
+    color: #db2777;
+  }
+
+  /* Mobile Actions */
+
+  .navbar__mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .navbar__mobile-signin,
+  .navbar__mobile-signup {
+    border: none;
+    background: transparent;
+
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .navbar__mobile-signin {
+    color: #475569;
+  }
+
+  .navbar__mobile-signup {
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background: var(--gradient-primary);
+    color: #ffffff;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 400px) {
+  .navbar__container {
+    width: min(100% - 16px, var(--container-width));
+  }
+
+  .navbar__mobile {
+    gap: 5px;
+  }
+
+  .navbar__mobile-brand {
+    gap: 4px;
+  }
+
+  .navbar__mobile-brand span {
+    font-size: 12px;
+  }
+
+  .navbar__mobile-brand img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar__mobile-actions {
+    gap: 4px;
+  }
+
+  .navbar__mobile-signin {
+    font-size: 10px;
+  }
+
+  .navbar__mobile-signup {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
