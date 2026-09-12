@@ -1,6 +1,10 @@
 import "./YourStack.css";
 
-function YourStack({ selectedTechnologies }) {
+function YourStack({
+  selectedTechnologies,
+  onRemove,
+  onRemoveAll,
+}) {
   return (
     <aside className="your-stack">
       <div className="your-stack__header">
@@ -50,6 +54,7 @@ function YourStack({ selectedTechnologies }) {
                 type="button"
                 className="your-stack__remove"
                 aria-label={`Remove ${technology.name}`}
+                onClick={() => onRemove(technology.id)}
               >
                 ×
               </button>
@@ -62,6 +67,7 @@ function YourStack({ selectedTechnologies }) {
         type="button"
         className="your-stack__remove-all"
         disabled={selectedTechnologies.length === 0}
+        onClick={onRemoveAll}
       >
         Remove All
       </button>

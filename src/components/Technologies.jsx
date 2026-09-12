@@ -22,6 +22,16 @@ function Technologies() {
     ]);
   };
 
+  const handleRemoveFromStack = (technologyId) => {
+    setSelectedTechnologies((currentStack) =>
+      currentStack.filter((technology) => technology.id !== technologyId)
+    );
+  };
+
+  const handleRemoveAll = () => {
+    setSelectedTechnologies([]);
+  };
+
   return (
     <section id="technologies" className="technologies section">
       <div className="container">
@@ -62,6 +72,8 @@ function Technologies() {
 
           <YourStack
             selectedTechnologies={selectedTechnologies}
+            onRemove={handleRemoveFromStack}
+            onRemoveAll={handleRemoveAll}
           />
         </div>
       </div>
