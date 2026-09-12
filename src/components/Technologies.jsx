@@ -1,14 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import technologies from "../data/technologies.json";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
 import "./Technologies.css";
 
 function Technologies() {
+  const [technologies, setTechnologies] = useState([]);
   const [selectedTechnologies, setSelectedTechnologies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const loadTechnologies = async () => {
+      try {
+        const response = await fetch("/data/technologies.json");
+
+        if (!response.ok) {
+          throw new Error("Failed to load technology data.");
+        }
+
+        const data = await response.json();
+
+        setTechnologies(data);
+      } catch (error) {
+        setError("Unable to load technologies. Please try again.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTechnologies();
+  }, []);
 
   const handleAddToStack = (technology) => {
     const alreadyAdded = selectedTechnologies.some(
@@ -78,26 +103,41 @@ function Technologies() {
           </div>
         </div>
 
-        <div className="technologies__layout">
-          <div className="technologies__grid">
-            {technologies.map((technology) => (
-              <TechnologyCard
-                key={technology.id}
-                technology={technology}
-                isAdded={selectedTechnologies.some(
-                  (item) => item.id === technology.id
-                )}
-                onAdd={handleAddToStack}
-              />
-            ))}
+        {loading && (
+          <div className="technologies__loading">
+            <div className="technologies__spinner"></div>
+            <p>Loading technologies...</p>
           </div>
+        )}
 
-          <YourStack
-            selectedTechnologies={selectedTechnologies}
-            onRemove={handleRemoveFromStack}
-            onRemoveAll={handleRemoveAll}
-          />
-        </div>
+        {!loading && error && (
+          <div className="technologies__error">
+            <p>{error}</p>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <div className="technologies__layout">
+            <div className="technologies__grid">
+              {technologies.map((technology) => (
+                <TechnologyCard
+                  key={technology.id}
+                  technology={technology}
+                  isAdded={selectedTechnologies.some(
+                    (item) => item.id === technology.id
+                  )}
+                  onAdd={handleAddToStack}
+                />
+              ))}
+            </div>
+
+            <YourStack
+              selectedTechnologies={selectedTechnologies}
+              onRemove={handleRemoveFromStack}
+              onRemoveAll={handleRemoveAll}
+            />
+          </div>
+        )}
       </div>
 
       <ToastContainer
