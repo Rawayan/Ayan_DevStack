@@ -1,6 +1,10 @@
 import "./TechnologyCard.css";
 
-function TechnologyCard({ technology }) {
+function TechnologyCard({ technology, isAdded, onAdd }) {
+  const handleAddClick = () => {
+    onAdd(technology);
+  };
+
   return (
     <article className="technology-card">
       <div className="technology-card__top">
@@ -49,9 +53,13 @@ function TechnologyCard({ technology }) {
 
         <button
           type="button"
-          className="technology-card__button"
+          className={`technology-card__button ${
+            isAdded ? "technology-card__button--added" : ""
+          }`}
+          onClick={handleAddClick}
+          disabled={isAdded}
         >
-          Add to Stack
+          {isAdded ? "✓ Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </article>

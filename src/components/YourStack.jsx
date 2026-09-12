@@ -1,13 +1,13 @@
 import "./YourStack.css";
 
-function YourStack() {
-  const selectedTechnologies = [];
-
+function YourStack({ selectedTechnologies }) {
   return (
     <aside className="your-stack">
       <div className="your-stack__header">
         <div>
-          <h2 className="your-stack__title">Your Stack</h2>
+          <h2 className="your-stack__title">
+            Your Stack
+          </h2>
 
           <p className="your-stack__count">
             {selectedTechnologies.length} Technology Selected

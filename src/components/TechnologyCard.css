@@ -182,3 +182,14 @@
     min-height: auto;
   }
 }
+
+.technology-card__button--added {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.technology-card__button--added:hover {
+  background: #e5e7eb;
+  transform: none;
+}

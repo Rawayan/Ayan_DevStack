@@ -1,9 +1,27 @@
+import { useState } from "react";
 import technologies from "../data/technologies.json";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
 import "./Technologies.css";
 
 function Technologies() {
+  const [selectedTechnologies, setSelectedTechnologies] = useState([]);
+
+  const handleAddToStack = (technology) => {
+    const alreadyAdded = selectedTechnologies.some(
+      (item) => item.id === technology.id
+    );
+
+    if (alreadyAdded) {
+      return;
+    }
+
+    setSelectedTechnologies((currentStack) => [
+      ...currentStack,
+      technology,
+    ]);
+  };
+
   return (
     <section id="technologies" className="technologies section">
       <div className="container">
@@ -34,11 +52,17 @@ function Technologies() {
               <TechnologyCard
                 key={technology.id}
                 technology={technology}
+                isAdded={selectedTechnologies.some(
+                  (item) => item.id === technology.id
+                )}
+                onAdd={handleAddToStack}
               />
             ))}
           </div>
 
-          <YourStack />
+          <YourStack
+            selectedTechnologies={selectedTechnologies}
+          />
         </div>
       </div>
     </section>
