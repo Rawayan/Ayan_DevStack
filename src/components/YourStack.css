@@ -175,3 +175,41 @@
     padding: 30px 10px;
   }
 }
+
+
+@media (max-width: 900px) {
+  .your-stack {
+    position: static;
+    width: 100%;
+  }
+
+  .your-stack__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .your-stack {
+    padding: 20px;
+  }
+
+  .your-stack__items {
+    grid-template-columns: 1fr;
+  }
+
+  .your-stack__item {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .your-stack {
+    padding: 16px;
+  }
+
+  .your-stack__title {
+    font-size: 20px;
+  }
+}

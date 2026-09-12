@@ -301,3 +301,58 @@
     font-size: 10px;
   }
 }
+
+/* ================================
+   RESPONSIVE NAVBAR REFINEMENT
+================================ */
+
+@media (max-width: 900px) {
+  .navbar__container {
+    padding-inline: 20px;
+  }
+
+  .navbar__links {
+    gap: 20px;
+  }
+
+  .navbar__actions {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__desktop {
+    display: none;
+  }
+
+  .navbar__mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__container {
+    padding-inline: 12px;
+  }
+
+  .navbar__mobile {
+    gap: 8px;
+  }
+
+  .navbar__mobile .navbar__brand {
+    font-size: 17px;
+  }
+
+  .navbar__mobile .navbar__actions {
+    gap: 6px;
+  }
+
+  .navbar__mobile .navbar__signin {
+    font-size: 13px;
+  }
+
+  .navbar__mobile .navbar__signup {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}

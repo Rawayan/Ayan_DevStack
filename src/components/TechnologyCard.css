@@ -193,3 +193,43 @@
   background: #e5e7eb;
   transform: none;
 }
+
+
+
+@media (max-width: 600px) {
+  .technology-card {
+    padding: 20px;
+  }
+
+  .technology-card__top {
+    gap: 12px;
+  }
+
+  .technology-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .technology-card__name {
+    font-size: 18px;
+  }
+
+  .technology-card__description {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .technology-card__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .technology-card {
+    padding: 16px;
+  }
+
+  .technology-card__name {
+    font-size: 17px;
+  }
+}

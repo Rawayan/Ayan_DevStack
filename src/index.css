@@ -44,6 +44,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--color-white);
+  overflow-x: hidden;
 }
 
 button,
@@ -172,4 +173,8 @@ ol {
   .container {
     width: min(100% - 20px, var(--container-width));
   }
+}
+
+section {
+  scroll-margin-top: 80px;
 }
